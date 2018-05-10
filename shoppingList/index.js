@@ -20,13 +20,17 @@ function main(){
     $('.js-shopping-list-entry').val('');
   });
 
-    $('.shopping-list').on('click','.shopping-item-delete', function(event){
-      $(this).closest("li").remove();
-      console.log("stuff");
-    });
+  //delete
+  $('.shopping-list').on('click','.shopping-item-delete', function(event){
+    $(this).closest('li').remove();
+    console.log('stuff');
+  });
 
-
-
+  //check and uncheck
+  $('.shopping-list').on('click','.shopping-item-toggle', function(event){    
+    console.log($(this).closest('li').children('.shopping-item'));
+    $(this).closest('li').children('span').toggleClass('shopping-item__checked');
+  });
 }
 
 $(main);

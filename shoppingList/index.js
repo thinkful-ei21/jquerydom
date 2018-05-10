@@ -1,9 +1,9 @@
 'use strict';
-function main(){  
+function main(){
   $('#js-shopping-list-form').on('submit', event => {
     event.preventDefault();
     const itemName = $('.js-shopping-list-entry').val();
-    console.log(itemName);
+
     const htmlText = `<li>
       <span class="shopping-item">${itemName}</span>
         <div class="shopping-item-controls">
@@ -15,10 +15,18 @@ function main(){
           </button>
         </div>
     </li>`;
-    console.log(htmlText);
+
     $('.shopping-list').append(htmlText);
     $('.js-shopping-list-entry').val('');
   });
+
+    $('.shopping-list').on('click','.shopping-item-delete', function(event){
+      $(this).closest("li").remove();
+      console.log("stuff");
+    });
+
+
+
 }
 
 $(main);
